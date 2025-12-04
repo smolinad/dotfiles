@@ -38,8 +38,16 @@
     :config
     (load-theme 'kanagawa-dragon t))
 (custom-set-variables
- '(package-selected-packages nil))
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages '(auctex evil kanagawa-themes)))
 (custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
  )
 
 ;; Remap
@@ -112,4 +120,9 @@
   (dolist (ev '(mouse-1 mouse-2 mouse-3 mouse-4 mouse-5
                  wheel-up wheel-down wheel-left wheel-right))
     (global-unset-key (vector ev))))
+
+(setq org-preview-latex-default-process 'dvisvgm)
+
+(setq org-latex-compiler "xelatex")
+                                 
 
