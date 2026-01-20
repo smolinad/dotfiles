@@ -10,6 +10,7 @@ return {
                 c = { "clang_format" },
                 cpp = { "clang_format" },
                 tex = { "latexindent" },
+                rust = { "rustfmt" },
             },
         })
 

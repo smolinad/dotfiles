@@ -15,7 +15,7 @@ return {
 config = function()
     require("mason").setup()
     require("mason-lspconfig").setup({
-        ensure_installed = { "lua_ls", "ruff", "pyright", "clangd", "texlab" },
+        ensure_installed = { "lua_ls", "ruff", "pyright", "clangd", "texlab", "rust_analyzer" },
     })
 
     -- 1. Remove the deprecated require("lspconfig") line
@@ -80,18 +80,13 @@ config = function()
                 },
             },
         },
+        rust_analyzer = {},
     }
 
     -- 2. Update the loop to use the new native API
     for name, config in pairs(servers) do
         config.capabilities = capabilities
-        
-        -- DEPRECATED: lspconfig[name].setup(config)
-        
-        -- NEW NATIVE METHOD (Neovim 0.11+):
-        -- Register the configuration for the server
         vim.lsp.config(name, config)
-        -- Enable the server (it will start automatically for valid filetypes)
         vim.lsp.enable(name)
     end
 end,
