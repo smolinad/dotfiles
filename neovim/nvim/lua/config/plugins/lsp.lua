@@ -15,7 +15,7 @@ return {
 config = function()
     require("mason").setup()
     require("mason-lspconfig").setup({
-        ensure_installed = { "lua_ls", "ruff", "pyright", "clangd", "texlab", "rust_analyzer" },
+        ensure_installed = { "lua_ls", "ruff", "pyright", "clangd", "texlab", "rust_analyzer", "marksman" },
     })
 
     -- 1. Remove the deprecated require("lspconfig") line
@@ -52,6 +52,7 @@ config = function()
                 },
             },
         },
+        ocamllsp = {},
         ruff = {},
         pyright = {
             settings = {
@@ -81,6 +82,7 @@ config = function()
             },
         },
         rust_analyzer = {},
+        marksman = {},
     }
 
     -- 2. Update the loop to use the new native API

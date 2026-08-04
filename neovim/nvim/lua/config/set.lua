@@ -1,7 +1,7 @@
 vim.opt.guicursor = ''
-vim.opt.textwidth = 80
-vim.opt.formatoptions:append("t")
 vim.opt.nu = true
+vim.opt.textwidth = 0
+vim.opt.colorcolumn = "80"
 vim.opt.relativenumber = true
 
 vim.opt.tabstop = 4
@@ -41,6 +41,15 @@ vim.api.nvim_create_autocmd('TextYankPost', {
         vim.highlight.on_yank()
     end,
 })
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "markdown", "tex" },
+  callback = function()
+    vim.opt_local.textwidth = 80
+    vim.opt_local.formatoptions:append("t")
+  end,
+})
+
 
 vim.opt.conceallevel = 2
 vim.opt.concealcursor = 'nc'

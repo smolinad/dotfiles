@@ -9,8 +9,16 @@ return {
                 python = { "ruff_format" },
                 c = { "clang_format" },
                 cpp = { "clang_format" },
-                tex = { "latexindent" },
+                tex = { "tex-fmt" },
                 rust = { "rustfmt" },
+                markdown = { "prettier" },
+                ocaml = { "ocamlformat" },
+                dune = { "format-dune-file" },
+            },
+            formatters = {
+                prettier = {
+                    prepend_args = { "--prose-wrap", "always", "--print-width", "80" },
+                },
             },
         })
 
@@ -18,7 +26,7 @@ return {
         vim.api.nvim_create_autocmd("BufWritePre", {
             pattern = "*",
             callback = function(args)
-                require("conform").format({ bufnr = args.buf })
+                conform.format({ bufnr = args.buf })
             end,
         })
     end,
