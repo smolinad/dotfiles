@@ -15,7 +15,7 @@ return {
 config = function()
     require("mason").setup()
     require("mason-lspconfig").setup({
-        ensure_installed = { "lua_ls", "ruff", "pyright", "clangd", "texlab", "rust_analyzer", "marksman" },
+        ensure_installed = { "lua_ls", "ruff", "clangd", "texlab", "rust_analyzer", "marksman" },
     })
 
     -- 1. Remove the deprecated require("lspconfig") line
@@ -53,18 +53,7 @@ config = function()
             },
         },
         ocamllsp = {},
-        ruff = {},
-        pyright = {
-            settings = {
-                python = {
-                    analysis = {
-                        autoSearchPaths = true,
-                        useLibraryCodeForTypes = true,
-                        diagnosticMode = "openFilesOnly",
-                    },
-                },
-            },
-        },
+        ty = {},
         clangd = {},
         texlab = {
             settings = {
