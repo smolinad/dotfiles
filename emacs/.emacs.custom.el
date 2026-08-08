@@ -31,6 +31,10 @@
 (unless package-archive-contents
   (package-refresh-contents))
 
+;; Orgfiles
+(setq org-agenda-files (directory-files-recursively "~/orgfiles/" "\\.org$"))
+(global-set-key (kbd "C-c a") #'org-agenda)
+
 ;; Evil Mode
 (unless (package-installed-p 'evil)
     (package-install 'evil))
